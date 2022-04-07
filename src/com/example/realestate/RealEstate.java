@@ -6,30 +6,30 @@ public class RealEstate {
 
     public static void main(String[] args) {
 
-        ArrayList<String> houses = new ArrayList<>();
 
-        houses.add("Bistro");
-        houses.add("Admirals");
+        Home first = new Home();
+        Apartment one = new Apartment();
+
+        first.setRooms(3);
+        first.setBathrooms(2);
+
+        System.out.println("First home has " + first.getRooms() + " rooms and " + first.getBathrooms() + " bathrooms.");
+
+        ArrayList<Home> homes = new ArrayList<>();
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Add houses, enter 'Done' to finish.");
-
+        System.out.println("Would you like to purchase this home?");
         try {
-            while(true){
-                String house = in.readLine();
-                if (house.equals("Done")){
-                    break;
-                }
-                else{
-                    houses.add(house);
-                }
+            if (in.readLine().equals("Yes")){
+                System.out.println(first.purchaseHome());
+            }
+            else{
+                System.out.println("Lets look at other homes.");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("These are the houses: " + houses);
 
     }
 }
